@@ -15,15 +15,16 @@
  */
 package org.japo.java.app;
 
+import org.japo.java.libraries.UtilesPrimitivos;
+
 /**
  *
  * @author Mario Merlos Abella - mario.merlos.alum@iescamp.es
  */
 public final class App {
+    
+    
 
-    public static final String LETRAS = "TRWAGMYFPDXBNJZSQVHLCKE";
-
-    //Datos
     public final int DNI_NUM = 45911057;
     public final char DNI_CTR = 'K';
 
@@ -34,34 +35,7 @@ public final class App {
         System.out.print(DNI_NUM);
         System.out.println(DNI_CTR);
         System.out.println("---");
-        int resultado = calcular(DNI_NUM, DNI_CTR);
-        System.out.println(validar(resultado));
+        int resultado = UtilesPrimitivos.calcular(DNI_NUM, DNI_CTR);
+        System.out.println(UtilesPrimitivos.validar(resultado));
     }
-
-    public final int calcular(int num, char ctr) {
-        int result;
-        double dniNum = num % 23;
-        char letraOK = LETRAS.charAt((int) dniNum);
-
-        if (DNI_CTR == letraOK) {
-            result = 1;
-        } else {
-            result = 0;
-        }
-        return result;
-    }
-
-    public final String validar(int val) {
-        String validez = "";
-        switch (val) {
-            case 1:
-                validez = "Validez ..: Correcto";
-                break;
-            case 0:
-                validez = "Validez ..: Incorrecto";
-                break;
-        }
-        return validez;
-    }
-
 }
